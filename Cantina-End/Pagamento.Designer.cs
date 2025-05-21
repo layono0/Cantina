@@ -31,21 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagamento));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            numLabel = new Label();
+            trocofimLabel = new Label();
             totalLabel = new Label();
             panel2 = new Panel();
-            label1 = new Label();
+            recebidoLabel = new Label();
             label2 = new Label();
             panel3 = new Panel();
-            label3 = new Label();
+            trocoLabel = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            listBox1 = new ListBox();
+            trocoTextBox = new TextBox();
+            dinheiroButton = new Button();
+            troco = new Button();
+            pixButton = new Button();
+            finalizarButton = new Button();
+            cartaoButton = new Button();
+            historicolistview = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -65,24 +68,24 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(17, 25, 12);
-            panel1.Controls.Add(numLabel);
+            panel1.Controls.Add(trocofimLabel);
             panel1.Controls.Add(totalLabel);
             panel1.Location = new Point(12, 114);
             panel1.Name = "panel1";
             panel1.Size = new Size(223, 64);
             panel1.TabIndex = 9;
             // 
-            // numLabel
+            // trocofimLabel
             // 
-            numLabel.AutoSize = true;
-            numLabel.BackColor = Color.FromArgb(17, 25, 12);
-            numLabel.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            numLabel.ForeColor = Color.FromArgb(225, 255, 0);
-            numLabel.Location = new Point(113, 18);
-            numLabel.Name = "numLabel";
-            numLabel.Size = new Size(24, 25);
-            numLabel.TabIndex = 1;
-            numLabel.Text = "0";
+            trocofimLabel.AutoSize = true;
+            trocofimLabel.BackColor = Color.FromArgb(17, 25, 12);
+            trocofimLabel.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            trocofimLabel.ForeColor = Color.FromArgb(225, 255, 0);
+            trocofimLabel.Location = new Point(113, 18);
+            trocofimLabel.Name = "trocofimLabel";
+            trocofimLabel.Size = new Size(24, 25);
+            trocofimLabel.TabIndex = 1;
+            trocofimLabel.Text = "0";
             // 
             // totalLabel
             // 
@@ -99,24 +102,25 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(17, 25, 12);
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(recebidoLabel);
             panel2.Controls.Add(label2);
             panel2.Location = new Point(12, 184);
             panel2.Name = "panel2";
             panel2.Size = new Size(223, 64);
             panel2.TabIndex = 9;
             // 
-            // label1
+            // recebidoLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(17, 25, 12);
-            label1.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(225, 255, 0);
-            label1.Location = new Point(142, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(24, 25);
-            label1.TabIndex = 1;
-            label1.Text = "0";
+            recebidoLabel.AutoSize = true;
+            recebidoLabel.BackColor = Color.FromArgb(17, 25, 12);
+            recebidoLabel.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            recebidoLabel.ForeColor = Color.FromArgb(225, 255, 0);
+            recebidoLabel.Location = new Point(142, 18);
+            recebidoLabel.Name = "recebidoLabel";
+            recebidoLabel.Size = new Size(24, 25);
+            recebidoLabel.TabIndex = 1;
+            recebidoLabel.Text = "0";
+            recebidoLabel.Click += recebidoLabel_Click;
             // 
             // label2
             // 
@@ -133,24 +137,24 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(17, 25, 12);
-            panel3.Controls.Add(label3);
+            panel3.Controls.Add(trocoLabel);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(12, 254);
             panel3.Name = "panel3";
             panel3.Size = new Size(223, 64);
             panel3.TabIndex = 9;
             // 
-            // label3
+            // trocoLabel
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(17, 25, 12);
-            label3.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.FromArgb(225, 255, 0);
-            label3.Location = new Point(113, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(24, 25);
-            label3.TabIndex = 1;
-            label3.Text = "0";
+            trocoLabel.AutoSize = true;
+            trocoLabel.BackColor = Color.FromArgb(17, 25, 12);
+            trocoLabel.Font = new Font("Agrandir Narrow", 14.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            trocoLabel.ForeColor = Color.FromArgb(225, 255, 0);
+            trocoLabel.Location = new Point(113, 18);
+            trocoLabel.Name = "trocoLabel";
+            trocoLabel.Size = new Size(24, 25);
+            trocoLabel.TabIndex = 1;
+            trocoLabel.Text = "0";
             // 
             // label4
             // 
@@ -164,83 +168,105 @@
             label4.TabIndex = 0;
             label4.Text = "Troco";
             // 
-            // textBox1
+            // trocoTextBox
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(241, 173);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(143, 23);
-            textBox1.TabIndex = 2;
+            trocoTextBox.Enabled = false;
+            trocoTextBox.Location = new Point(241, 173);
+            trocoTextBox.Name = "trocoTextBox";
+            trocoTextBox.Size = new Size(143, 23);
+            trocoTextBox.TabIndex = 2;
+            trocoTextBox.TextChanged += trocoTextBox_TextChanged;
             // 
-            // button1
+            // dinheiroButton
             // 
-            button1.Location = new Point(241, 113);
-            button1.Name = "button1";
-            button1.Size = new Size(143, 44);
-            button1.TabIndex = 10;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            dinheiroButton.Location = new Point(241, 113);
+            dinheiroButton.Name = "dinheiroButton";
+            dinheiroButton.Size = new Size(143, 44);
+            dinheiroButton.TabIndex = 10;
+            dinheiroButton.Text = "Dinheiro";
+            dinheiroButton.UseVisualStyleBackColor = true;
+            dinheiroButton.Click += button1_Click;
             // 
-            // button2
+            // troco
             // 
-            button2.Enabled = false;
-            button2.Location = new Point(390, 173);
-            button2.Name = "button2";
-            button2.Size = new Size(57, 23);
-            button2.TabIndex = 10;
-            button2.Text = "button1";
-            button2.UseVisualStyleBackColor = true;
+            troco.Enabled = false;
+            troco.Location = new Point(390, 173);
+            troco.Name = "troco";
+            troco.Size = new Size(57, 23);
+            troco.TabIndex = 10;
+            troco.Text = "Troco";
+            troco.UseVisualStyleBackColor = true;
+            troco.Click += troco_Click;
             // 
-            // button3
+            // pixButton
             // 
-            button3.Location = new Point(241, 212);
-            button3.Name = "button3";
-            button3.Size = new Size(143, 44);
-            button3.TabIndex = 10;
-            button3.Text = "button1";
-            button3.UseVisualStyleBackColor = true;
+            pixButton.Location = new Point(241, 212);
+            pixButton.Name = "pixButton";
+            pixButton.Size = new Size(143, 44);
+            pixButton.TabIndex = 10;
+            pixButton.Text = "Pix";
+            pixButton.UseVisualStyleBackColor = true;
+            pixButton.Click += pixButton_Click;
             // 
-            // button4
+            // finalizarButton
             // 
-            button4.Location = new Point(52, 337);
-            button4.Name = "button4";
-            button4.Size = new Size(143, 44);
-            button4.TabIndex = 10;
-            button4.Text = "button1";
-            button4.UseVisualStyleBackColor = true;
+            finalizarButton.Enabled = false;
+            finalizarButton.Location = new Point(52, 337);
+            finalizarButton.Name = "finalizarButton";
+            finalizarButton.Size = new Size(143, 44);
+            finalizarButton.TabIndex = 10;
+            finalizarButton.Text = "Finalizar Pagamento";
+            finalizarButton.UseVisualStyleBackColor = true;
+            finalizarButton.Click += finalizarButton_Click;
             // 
-            // button5
+            // cartaoButton
             // 
-            button5.Location = new Point(241, 274);
-            button5.Name = "button5";
-            button5.Size = new Size(143, 44);
-            button5.TabIndex = 10;
-            button5.Text = "button1";
-            button5.UseVisualStyleBackColor = true;
+            cartaoButton.Location = new Point(241, 274);
+            cartaoButton.Name = "cartaoButton";
+            cartaoButton.Size = new Size(143, 44);
+            cartaoButton.TabIndex = 10;
+            cartaoButton.Text = "Cartão";
+            cartaoButton.UseVisualStyleBackColor = true;
+            cartaoButton.Click += cartaoButton_Click;
             // 
-            // listBox1
+            // historicolistview
             // 
-            listBox1.ColumnWidth = 10;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(553, 113);
-            listBox1.MultiColumn = true;
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(207, 214);
-            listBox1.TabIndex = 11;
+            historicolistview.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            historicolistview.FullRowSelect = true;
+            historicolistview.Location = new Point(612, 26);
+            historicolistview.Name = "historicolistview";
+            historicolistview.Size = new Size(265, 355);
+            historicolistview.TabIndex = 11;
+            historicolistview.UseCompatibleStateImageBehavior = false;
+            historicolistview.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Id";
+            columnHeader1.Width = 80;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Data";
+            columnHeader2.Width = 87;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Total";
+            columnHeader3.Width = 90;
             // 
             // Pagamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 479);
-            Controls.Add(listBox1);
-            Controls.Add(button2);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(889, 479);
+            Controls.Add(historicolistview);
+            Controls.Add(troco);
+            Controls.Add(cartaoButton);
+            Controls.Add(finalizarButton);
+            Controls.Add(pixButton);
+            Controls.Add(dinheiroButton);
+            Controls.Add(trocoTextBox);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -263,20 +289,23 @@
 
         private PictureBox pictureBox1;
         private Panel panel1;
-        private Label numLabel;
+        private Label trocofimLabel;
         private Label totalLabel;
         private Panel panel2;
-        private Label label1;
+        private Label recebidoLabel;
         private Label label2;
         private Panel panel3;
-        private Label label3;
+        private Label trocoLabel;
         private Label label4;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private ListBox listBox1;
+        private TextBox trocoTextBox;
+        private Button dinheiroButton;
+        private Button troco;
+        private Button pixButton;
+        private Button finalizarButton;
+        private Button cartaoButton;
+        private ListView historicolistview;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
     }
 }

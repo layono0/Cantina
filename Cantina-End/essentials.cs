@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
+using static Cantina_End.Produto;
 
 namespace Cantina_End
 {
@@ -24,6 +26,13 @@ namespace Cantina_End
 
 
         }
+        public class Pedido
+        {
+            public int Id { get; set; }
+            public List<string> Itens { get; set; } = new List<string>();
+            public DateTime Data { get; set; }
+            public string Total { get; set; }
+        }
 
 
 
@@ -43,6 +52,7 @@ namespace Cantina_End
     {
 
         public static BindingList<Produto> ListaProdutos { get; private set; } = new BindingList<Produto>();
+        public static List<Pedido> Pedidos = new List<Pedido>();
 
 
         public static void CarregarItems()

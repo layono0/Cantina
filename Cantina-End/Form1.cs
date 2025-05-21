@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using static Cantina_End.Produto;
 
 namespace Cantina_End
 {
@@ -68,7 +69,7 @@ namespace Cantina_End
                     }
 
                 }
-                numLabel.Text = total.ToString("C");
+                numLabel.Text = total.ToString();
             }
         }
 
@@ -78,6 +79,7 @@ namespace Cantina_End
             {
                 var itemRemovido = pedidoList.SelectedItems[0];
                 var produtoRemovido = (Produto)itemRemovido.Tag;
+                double total = double.Parse(numLabel.Text);
 
                 produtoRemovido.Quantidade++;
 
@@ -90,6 +92,8 @@ namespace Cantina_End
                         break;
                     }
                 }
+                var totalfinal = total - produtoRemovido.Valor;
+                numLabel.Text = totalfinal.ToString();
                 pedidoList.Items.Remove(itemRemovido);
             }
         }
@@ -98,24 +102,27 @@ namespace Cantina_End
         {
             
             Modal();
-            
-            
+
+
+
+
         }
         public void Modal()
         {
-            StringBuilder sb = new StringBuilder();
-
+            List<string> carrinhoStrings = new List<string>();
             foreach (ListViewItem item in pedidoList.Items)
             {
-                string quantidade = "0";
-                var produto = (Produto)item.Tag;
-                sb.AppendLine($"{produto.Nome} - {produto.Quantidade}x - R${produto.Valor:F2}");
+                string nome = item.SubItems[0].Text;
+                string quantidade = item.SubItems[1].Text;
+                string valor = item.SubItems[2].Text;
+
+                carrinhoStrings.Add($"{nome} - {quantidade} x {valor}");
             }
 
-            string resultado = sb.ToString();
+            
 
 
-            var totalfim = totalLabel.Text;
+            var totalfim = numLabel.Text;
 
             Form frm = new Form()
             {
@@ -126,7 +133,7 @@ namespace Cantina_End
                 Size = SystemInformation.WorkingArea.Size 
             };
             frm.Show();
-            var pagamento = new Pagamento(resultado, totalfim);
+            var pagamento = new Pagamento(carrinhoStrings, totalfim);
             pagamento.ShowDialog();
             frm.Close();
         }
