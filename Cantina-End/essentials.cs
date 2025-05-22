@@ -58,7 +58,7 @@ namespace Cantina_End
         public static void CarregarItems()
         {
 
-            string local = @"C:\Users\PC\Documents\listadeitems.txt";
+            string local = @".\listadeitems.txt";
             var linhas = File.ReadAllLines(local);
 
             foreach (var line in linhas)
