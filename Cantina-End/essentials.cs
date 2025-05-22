@@ -57,8 +57,8 @@ namespace Cantina_End
 
         public static void CarregarItems()
         {
-
-            string local = @".\listadeitems.txt";
+            string caminhoRaiz = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            string local = Path.Combine(caminhoRaiz, "listadeitems.txt");
             var linhas = File.ReadAllLines(local);
 
             foreach (var line in linhas)

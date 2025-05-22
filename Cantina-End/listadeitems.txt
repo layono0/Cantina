@@ -1,0 +1,10 @@
+Pão de Queijo, 1, 5, 3.50
+Coxinha, 2, 5, 5.00
+Pastel de Carne, 3, 5, 6.00
+Pastel de Queijo, 4, 5, 5.50
+Suco Natural(300ml), 5, 5, 4.00
+Refrigerante Lata, 6, 5, 4.50
+Hambúrger Simples, 7, 5, 8.00
+Hambúrger com Queijo, 8, 5, 9.00
+X-Tudo, 9, 5, 12.00
+Água Mineral(500ml), 10, 5, 2.50
