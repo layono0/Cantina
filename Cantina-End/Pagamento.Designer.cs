@@ -49,6 +49,8 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            nomeTextbox = new TextBox();
+            balcaoButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -211,7 +213,7 @@
             // finalizarButton
             // 
             finalizarButton.Enabled = false;
-            finalizarButton.Location = new Point(52, 337);
+            finalizarButton.Location = new Point(49, 367);
             finalizarButton.Name = "finalizarButton";
             finalizarButton.Size = new Size(143, 44);
             finalizarButton.TabIndex = 10;
@@ -255,17 +257,38 @@
             columnHeader3.Text = "Total";
             columnHeader3.Width = 90;
             // 
+            // nomeTextbox
+            // 
+            nomeTextbox.Enabled = false;
+            nomeTextbox.Location = new Point(12, 338);
+            nomeTextbox.Name = "nomeTextbox";
+            nomeTextbox.Size = new Size(223, 23);
+            nomeTextbox.TabIndex = 2;
+            nomeTextbox.TextChanged += trocoTextBox_TextChanged;
+            // 
+            // balcaoButton
+            // 
+            balcaoButton.Location = new Point(414, 367);
+            balcaoButton.Name = "balcaoButton";
+            balcaoButton.Size = new Size(143, 44);
+            balcaoButton.TabIndex = 12;
+            balcaoButton.Text = "Balcão";
+            balcaoButton.UseVisualStyleBackColor = true;
+            balcaoButton.Click += balcaoButton_Click_1;
+            // 
             // Pagamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(889, 479);
+            Controls.Add(balcaoButton);
             Controls.Add(historicolistview);
             Controls.Add(troco);
             Controls.Add(cartaoButton);
             Controls.Add(finalizarButton);
             Controls.Add(pixButton);
             Controls.Add(dinheiroButton);
+            Controls.Add(nomeTextbox);
             Controls.Add(trocoTextBox);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -307,5 +330,7 @@
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private TextBox nomeTextbox;
+        private Button balcaoButton;
     }
 }

@@ -26,13 +26,6 @@ namespace Cantina_End
 
 
         }
-        public class Pedido
-        {
-            public int Id { get; set; }
-            public List<string> Itens { get; set; } = new List<string>();
-            public DateTime Data { get; set; }
-            public string Total { get; set; }
-        }
 
 
 
@@ -47,6 +40,22 @@ namespace Cantina_End
         public double Valor { get; set; }
 
 
+    }
+    public class Pedido
+    {
+        public string Nome { get; set; }
+        public List<string> Itens { get; set; } = new List<string>();
+        public DateTime Data { get; set; }
+        public string Total { get; set; }
+        public statusDoPedido Status { get; set; }
+    }
+    public enum statusDoPedido
+    {
+        Criado,
+        Preparando,
+        Finalizado,
+        Entregue,
+        Cancelado
     }
     public static class ProdutoRepository
     {

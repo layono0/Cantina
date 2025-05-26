@@ -68,7 +68,7 @@ namespace Cantina_End
                         total += produtoadicionado.Valor;
                     }
 
-                }
+                }    
                 numLabel.Text = total.ToString();
             }
         }
@@ -115,6 +115,7 @@ namespace Cantina_End
                 string nome = item.SubItems[0].Text;
                 string quantidade = item.SubItems[1].Text;
                 string valor = item.SubItems[2].Text;
+                
 
                 carrinhoStrings.Add($"{nome} - {quantidade} x {valor}");
             }
