@@ -23,6 +23,7 @@ namespace Cantina_End
             Codigo = items[1].ToString();
             Quantidade = int.Parse(items[2]);
             Valor = double.Parse(items[3]);
+            isChapa = bool.Parse(items[4]);
 
 
         }
@@ -38,17 +39,21 @@ namespace Cantina_End
         public int Quantidade { get; set; }
         public string Codigo { get; set; }
         public double Valor { get; set; }
+        public bool isChapa {  get; set; }
 
 
     }
     public class Pedido
     {
         public string Nome { get; set; }
-        public List<string> Itens { get; set; } = new List<string>();
+        public List<Produto> Itens { get; set; } = new List<Produto>();
         public DateTime Data { get; set; }
         public string Total { get; set; }
         public statusDoPedido Status { get; set; }
+        public bool isChapa { get; set; }
     }
+    
+
     public enum statusDoPedido
     {
         Criado,

@@ -49,13 +49,18 @@ namespace Cantina_End
 
             foreach (var pedidos in ProdutoRepository.Pedidos)
             {
+                if (pedidos.isChapa == false)
+                {
+                    var items = new ListViewItem(pedidos.Nome);
+                    items.SubItems.Add(pedidos.Total.ToString());
+                    items.SubItems.Add(pedidos.Status.ToString());
+                    items.Tag = pedidos;
+                    pedidosAtuaisView.Items.Add(items);
+                }
+                else
+                {
 
-                var items = new ListViewItem(pedidos.Nome);
-                items.SubItems.Add(pedidos.Total.ToString());
-                items.SubItems.Add(pedidos.Status.ToString());
-                items.Tag = pedidos;
-                pedidosAtuaisView.Items.Add(items);
-
+                }
             }
         }
 
@@ -126,6 +131,19 @@ namespace Cantina_End
                         itensView.Items.Add(Itens);
                     }
                     
+                }
+            }
+
+            foreach (ListViewItem pedidoFinalizado in historicoDePedidosView.SelectedItems)
+            {
+                if (pedidoFinalizado.Tag is Pedido pedidoselecionado)
+                {
+
+                    foreach (var Itens in pedidoselecionado.Itens)
+                    {
+                        itensView.Items.Add(Itens);
+                    }
+
                 }
             }
         }

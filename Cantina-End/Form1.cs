@@ -109,18 +109,11 @@ namespace Cantina_End
         }
         public void Modal()
         {
-            List<string> carrinhoStrings = new List<string>();
+            List<Produto> carrinhoStrings = new List<Produto>();
             foreach (ListViewItem item in pedidoList.Items)
             {
-                string nome = item.SubItems[0].Text;
-                string quantidade = item.SubItems[1].Text;
-                string valor = item.SubItems[2].Text;
-                
-
-                carrinhoStrings.Add($"{nome} - {quantidade} x {valor}");
+                carrinhoStrings.Add(item.Tag as Produto);
             }
-
-            
 
 
             var totalfim = numLabel.Text;

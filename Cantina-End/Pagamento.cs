@@ -13,9 +13,9 @@ namespace Cantina_End
 {
     public partial class Pagamento : Form
     {
-        private List<string> _carrinhoStrings;
+        private List<Produto> _carrinhoStrings;
         private string _totalfim;
-        public Pagamento(List<string> carrinhoStrings, string totalfim)
+        public Pagamento(List<Produto> carrinhoStrings, string totalfim)
         {
             InitializeComponent();
 
@@ -66,22 +66,51 @@ namespace Cantina_End
 
         private void finalizarButton_Click(object sender, EventArgs e)
         {
-            if (trocofimLabel.Text != "0")
-            {
-                historicolistview.Items.Clear();
-                var novoPedido = new Pedido
+            
+                if (_carrinhoStrings.Exists(x => x.isChapa == true) && trocofimLabel.Text != "0")
                 {
-                    Nome = nomeTextbox.Text,
-                    Itens = _carrinhoStrings,
-                    Data = DateTime.Now,
-                    Total = trocofimLabel.Text,
-                    Status = statusDoPedido.Criado
+                    historicolistview.Items.Clear();
+                    var novoPedido = new Pedido
+                    {
+                        Nome = nomeTextbox.Text,
+                        Itens = _carrinhoStrings,
+                        Data = DateTime.Now,
+                        Total = trocofimLabel.Text,
+                        Status = statusDoPedido.Preparando,
+                        isChapa = true
 
-                };
 
-                ProdutoRepository.Pedidos.Add(novoPedido);
+                    };
+                    ProdutoRepository.Pedidos.Add(novoPedido);
+                }
+                else if (_carrinhoStrings.Exists(x => x.isChapa == false))
+                {
+                    var novoPedido = new Pedido
+                    {
+                        Nome = nomeTextbox.Text,
+                        Itens = _carrinhoStrings,
+                        Data = DateTime.Now,
+                        Total = trocofimLabel.Text,
+                        Status = statusDoPedido.Criado,
+                        isChapa = false
 
-                foreach (var pedidos in ProdutoRepository.Pedidos)
+
+                    };
+                    ProdutoRepository.Pedidos.Add(novoPedido);
+                }
+                else
+                {
+                    MessageBox.Show("O total é 0, o pedido não pode ser finalizado");
+                }
+
+            
+            recebidoLabel.Text = "0";
+
+
+
+
+
+            foreach (var pedidos in ProdutoRepository.Pedidos)
                 {
 
                     var items = new ListViewItem(pedidos.Nome);
@@ -92,13 +121,7 @@ namespace Cantina_End
 
 
                 }
-
-            }
-            else
-            {
-                MessageBox.Show("O total é 0, o pedido não pode ser finalizado");
-            }
-            recebidoLabel.Text = "0";
+           
 
             string caminho = @"C:\Users\PC\Documents\historicodepedidos.txt";
             using (StreamWriter writer = new StreamWriter(caminho))
