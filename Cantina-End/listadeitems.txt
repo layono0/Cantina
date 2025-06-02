@@ -1,10 +1,10 @@
-Pão de Queijo, 1, 5, 3.50, false
-Coxinha, 2, 5, 5.00, false
-Pastel de Carne, 3, 5, 6.00, true
-Pastel de Queijo, 4, 5, 5.50, true
-Suco Natural(300ml), 5, 5, 4.00, false
-Refrigerante Lata, 6, 5, 4.50, false
-Hambúrger Simples, 7, 5, 8.00, true
-Hambúrger com Queijo, 8, 5, 9.00, true
-X-Tudo, 9, 5, 12.00, true
-Água Mineral(500ml), 10, 5, 2.50, false
+Pão de Queijo; 1; 5; 3,50; false
+Coxinha; 2; 5; 5,00; false
+Pastel de Carne; 3; 5; 6,00; true
+Pastel de Queijo; 4; 5; 5,50; true
+Suco Natural(300ml); 5; 5; 4,00; false
+Refrigerante Lata; 6; 5; 4,50; false
+Hambúrger Simples; 7; 5; 8,00; true
+Hambúrger com Queijo; 8; 5; 9,00; true
+X-Tudo; 9; 5; 12,00; true
+Água Mineral(500ml); 10; 5; 2,50; false

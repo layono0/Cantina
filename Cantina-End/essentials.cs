@@ -18,7 +18,7 @@ namespace Cantina_End
 
         public Produto(string linhatexto)
         {
-            var items = linhatexto.Split(',');
+            var items = linhatexto.Split(';');
             Nome = items[0];
             Codigo = items[1].ToString();
             Quantidade = int.Parse(items[2]);
@@ -32,7 +32,7 @@ namespace Cantina_End
 
         public override string ToString()
         {
-            return $"{Nome} - {Codigo} - {Quantidade}x - R${Valor:F2}";
+            return $"{Nome} - R${Valor:F2}";
         }
 
         public string Nome { get; set; }
@@ -50,7 +50,6 @@ namespace Cantina_End
         public DateTime Data { get; set; }
         public string Total { get; set; }
         public statusDoPedido Status { get; set; }
-        public bool isChapa { get; set; }
     }
     
 

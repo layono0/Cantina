@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using static Cantina_End.Produto;
 
@@ -69,7 +70,7 @@ namespace Cantina_End
                     }
 
                 }    
-                numLabel.Text = total.ToString();
+                numLabel.Text = total.ToString("C");
             }
         }
 
@@ -79,7 +80,7 @@ namespace Cantina_End
             {
                 var itemRemovido = pedidoList.SelectedItems[0];
                 var produtoRemovido = (Produto)itemRemovido.Tag;
-                double total = double.Parse(numLabel.Text);
+                double total = double.Parse(numLabel.Text, System.Globalization.NumberStyles.Currency, new CultureInfo("pt-BR"));
 
                 produtoRemovido.Quantidade++;
 

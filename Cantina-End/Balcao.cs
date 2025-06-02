@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -49,7 +50,7 @@ namespace Cantina_End
 
             foreach (var pedidos in ProdutoRepository.Pedidos)
             {
-                if (pedidos.isChapa == false)
+                if (pedidos.Status == statusDoPedido.Criado)
                 {
                     var items = new ListViewItem(pedidos.Nome);
                     items.SubItems.Add(pedidos.Total.ToString());
@@ -57,6 +58,23 @@ namespace Cantina_End
                     items.Tag = pedidos;
                     pedidosAtuaisView.Items.Add(items);
                 }
+                else
+                {
+
+                }
+            }
+
+            foreach (var pedidofinalizado in ProdutoRepository.Pedidos)
+            {
+                if (pedidofinalizado.Status == statusDoPedido.Finalizado)
+                {
+                    var items = new ListViewItem(pedidofinalizado.Nome);
+                    items.SubItems.Add(pedidofinalizado.Total.ToString());
+                    items.SubItems.Add(pedidofinalizado.Status.ToString());
+                    items.Tag = pedidofinalizado;
+                    historicoDePedidosView.Items.Add(items);
+                }
+
                 else
                 {
 
@@ -121,6 +139,8 @@ namespace Cantina_End
 
         private void verificarButton_Click(object sender, EventArgs e)
         {
+            itensView.Items.Clear();
+            
             foreach (ListViewItem pedidoAtual in pedidosAtuaisView.SelectedItems)
             {
                 if (pedidoAtual.Tag is Pedido pedidoselecionado)
@@ -133,19 +153,7 @@ namespace Cantina_End
                     
                 }
             }
-
-            foreach (ListViewItem pedidoFinalizado in historicoDePedidosView.SelectedItems)
-            {
-                if (pedidoFinalizado.Tag is Pedido pedidoselecionado)
-                {
-
-                    foreach (var Itens in pedidoselecionado.Itens)
-                    {
-                        itensView.Items.Add(Itens);
-                    }
-
-                }
-            }
+            
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,7 @@ namespace Cantina_End
 
         private void troco_Click(object sender, EventArgs e)
         {
-            double totalFinal = double.Parse(_totalfim);
+            double totalFinal = double.Parse(_totalfim, System.Globalization.NumberStyles.Currency, new CultureInfo("pt-BR"));
 
 
             if (double.TryParse(trocoTextBox.Text, out double valorRecebido))
@@ -77,7 +78,6 @@ namespace Cantina_End
                         Data = DateTime.Now,
                         Total = trocofimLabel.Text,
                         Status = statusDoPedido.Preparando,
-                        isChapa = true
 
 
                     };
@@ -92,7 +92,6 @@ namespace Cantina_End
                         Data = DateTime.Now,
                         Total = trocofimLabel.Text,
                         Status = statusDoPedido.Criado,
-                        isChapa = false
 
 
                     };
