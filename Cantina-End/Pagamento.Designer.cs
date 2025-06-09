@@ -51,6 +51,7 @@
             columnHeader3 = new ColumnHeader();
             nomeTextbox = new TextBox();
             balcaoButton = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -276,11 +277,22 @@
             balcaoButton.UseVisualStyleBackColor = true;
             balcaoButton.Click += balcaoButton_Click_1;
             // 
+            // button1
+            // 
+            button1.Location = new Point(449, 417);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 13;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // Pagamento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(889, 479);
+            Controls.Add(button1);
             Controls.Add(balcaoButton);
             Controls.Add(historicolistview);
             Controls.Add(troco);
@@ -332,5 +344,6 @@
         private ColumnHeader columnHeader3;
         private TextBox nomeTextbox;
         private Button balcaoButton;
+        private Button button1;
     }
 }

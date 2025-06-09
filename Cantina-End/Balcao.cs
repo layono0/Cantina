@@ -140,7 +140,7 @@ namespace Cantina_End
         private void verificarButton_Click(object sender, EventArgs e)
         {
             itensView.Items.Clear();
-            
+
             foreach (ListViewItem pedidoAtual in pedidosAtuaisView.SelectedItems)
             {
                 if (pedidoAtual.Tag is Pedido pedidoselecionado)
@@ -150,10 +150,15 @@ namespace Cantina_End
                     {
                         itensView.Items.Add(Itens);
                     }
-                    
+
                 }
             }
-            
+
+        }
+
+        private void cuzinhabutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -67,42 +67,42 @@ namespace Cantina_End
 
         private void finalizarButton_Click(object sender, EventArgs e)
         {
-            
-                if (_carrinhoStrings.Exists(x => x.isChapa == true) && trocofimLabel.Text != "0")
+
+            if (_carrinhoStrings.Exists(x => x.isChapa == true) && trocofimLabel.Text != "0")
+            {
+                historicolistview.Items.Clear();
+                var novoPedido = new Pedido
                 {
-                    historicolistview.Items.Clear();
-                    var novoPedido = new Pedido
-                    {
-                        Nome = nomeTextbox.Text,
-                        Itens = _carrinhoStrings,
-                        Data = DateTime.Now,
-                        Total = trocofimLabel.Text,
-                        Status = statusDoPedido.Preparando,
+                    Nome = nomeTextbox.Text,
+                    Itens = _carrinhoStrings,
+                    Data = DateTime.Now,
+                    Total = trocofimLabel.Text,
+                    Status = statusDoPedido.Preparando,
 
 
-                    };
-                    ProdutoRepository.Pedidos.Add(novoPedido);
-                }
-                else if (_carrinhoStrings.Exists(x => x.isChapa == false))
+                };
+                ProdutoRepository.Pedidos.Add(novoPedido);
+            }
+            else if (_carrinhoStrings.Exists(x => x.isChapa == false))
+            {
+                var novoPedido = new Pedido
                 {
-                    var novoPedido = new Pedido
-                    {
-                        Nome = nomeTextbox.Text,
-                        Itens = _carrinhoStrings,
-                        Data = DateTime.Now,
-                        Total = trocofimLabel.Text,
-                        Status = statusDoPedido.Criado,
+                    Nome = nomeTextbox.Text,
+                    Itens = _carrinhoStrings,
+                    Data = DateTime.Now,
+                    Total = trocofimLabel.Text,
+                    Status = statusDoPedido.Criado,
 
 
-                    };
-                    ProdutoRepository.Pedidos.Add(novoPedido);
-                }
-                else
-                {
-                    MessageBox.Show("O total é 0, o pedido não pode ser finalizado");
-                }
+                };
+                ProdutoRepository.Pedidos.Add(novoPedido);
+            }
+            else
+            {
+                MessageBox.Show("O total é 0, o pedido não pode ser finalizado");
+            }
 
-            
+
             recebidoLabel.Text = "0";
 
 
@@ -110,17 +110,17 @@ namespace Cantina_End
 
 
             foreach (var pedidos in ProdutoRepository.Pedidos)
-                {
+            {
 
-                    var items = new ListViewItem(pedidos.Nome);
-                    items.SubItems.Add(pedidos.Data.ToString());
-                    items.SubItems.Add(pedidos.Total.ToString());
+                var items = new ListViewItem(pedidos.Nome);
+                items.SubItems.Add(pedidos.Data.ToString());
+                items.SubItems.Add(pedidos.Total.ToString());
 
-                    historicolistview.Items.Add(items);
+                historicolistview.Items.Add(items);
 
 
-                }
-           
+            }
+
 
             string caminho = @"C:\Users\PC\Documents\historicodepedidos.txt";
             using (StreamWriter writer = new StreamWriter(caminho))
@@ -165,6 +165,13 @@ namespace Cantina_End
             var balcao = new Balcao();
             this.Close();
             balcao.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var cozinha = new cozinha();
+            this.Close();
+            cozinha.Show();
         }
     }
 }
