@@ -173,5 +173,12 @@ namespace Cantina_End
             this.Close();
             cozinha.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var chamadp = new Tela_de_chamado();
+            this.Close();
+            chamadp.Show();
+        }
     }
 }

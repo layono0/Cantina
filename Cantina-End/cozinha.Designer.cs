@@ -52,6 +52,7 @@
             check4 = new PictureBox();
             avancarButton = new Button();
             listBox1 = new ListBox();
+            pictureBox10 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -65,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)check2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)check3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)check4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
             // 
             // listView1
@@ -283,11 +285,22 @@
             listBox1.Size = new Size(318, 229);
             listBox1.TabIndex = 15;
             // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(336, 12);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(128, 38);
+            pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 16;
+            pictureBox10.TabStop = false;
+            // 
             // cozinha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox10);
             Controls.Add(listBox1);
             Controls.Add(avancarButton);
             Controls.Add(check4);
@@ -325,6 +338,7 @@
             ((System.ComponentModel.ISupportInitialize)check2).EndInit();
             ((System.ComponentModel.ISupportInitialize)check3).EndInit();
             ((System.ComponentModel.ISupportInitialize)check4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ResumeLayout(false);
         }
 
@@ -353,5 +367,6 @@
         private PictureBox check4;
         private Button avancarButton;
         private ListBox listBox1;
+        private PictureBox pictureBox10;
     }
 }
