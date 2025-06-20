@@ -1,0 +1,4 @@
+coxinha;23;false
+pão de queijo;12;False
+frutas;40;false
+refrigerante fardos;10;false

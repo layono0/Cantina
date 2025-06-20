@@ -70,7 +70,6 @@ namespace Cantina_End
 
             if (_carrinhoStrings.Exists(x => x.isChapa == true) && trocofimLabel.Text != "0")
             {
-                historicolistview.Items.Clear();
                 var novoPedido = new Pedido
                 {
                     Nome = nomeTextbox.Text,
@@ -108,18 +107,6 @@ namespace Cantina_End
 
 
 
-
-            foreach (var pedidos in ProdutoRepository.Pedidos)
-            {
-
-                var items = new ListViewItem(pedidos.Nome);
-                items.SubItems.Add(pedidos.Data.ToString());
-                items.SubItems.Add(pedidos.Total.ToString());
-
-                historicolistview.Items.Add(items);
-
-
-            }
 
 
             string caminho = @"C:\Users\PC\Documents\historicodepedidos.txt";

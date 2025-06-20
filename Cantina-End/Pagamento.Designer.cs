@@ -45,10 +45,6 @@
             pixButton = new Button();
             finalizarButton = new Button();
             cartaoButton = new Button();
-            historicolistview = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
             nomeTextbox = new TextBox();
             balcaoButton = new Button();
             button1 = new Button();
@@ -233,32 +229,6 @@
             cartaoButton.UseVisualStyleBackColor = true;
             cartaoButton.Click += cartaoButton_Click;
             // 
-            // historicolistview
-            // 
-            historicolistview.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            historicolistview.FullRowSelect = true;
-            historicolistview.Location = new Point(612, 26);
-            historicolistview.Name = "historicolistview";
-            historicolistview.Size = new Size(265, 355);
-            historicolistview.TabIndex = 11;
-            historicolistview.UseCompatibleStateImageBehavior = false;
-            historicolistview.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Id";
-            columnHeader1.Width = 80;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "Data";
-            columnHeader2.Width = 87;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Total";
-            columnHeader3.Width = 90;
-            // 
             // nomeTextbox
             // 
             nomeTextbox.Enabled = false;
@@ -280,7 +250,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(449, 417);
+            button1.Location = new Point(403, 417);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 13;
@@ -290,7 +260,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(530, 417);
+            button2.Location = new Point(493, 417);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 14;
@@ -306,7 +276,6 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(balcaoButton);
-            Controls.Add(historicolistview);
             Controls.Add(troco);
             Controls.Add(cartaoButton);
             Controls.Add(finalizarButton);
@@ -350,10 +319,6 @@
         private Button pixButton;
         private Button finalizarButton;
         private Button cartaoButton;
-        private ListView historicolistview;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
         private TextBox nomeTextbox;
         private Button balcaoButton;
         private Button button1;
