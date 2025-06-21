@@ -25,7 +25,7 @@ namespace Cantina_End
             Codigo = items[1].ToString();
             Quantidade = int.Parse(items[2]);
             Valor = double.Parse(items[3]);
-            isChapa = bool.Parse(items[4]);
+           bool isChapa = bool.Parse(items[4]);
 
 
         }
@@ -38,7 +38,7 @@ namespace Cantina_End
         }
 
         public string Nome { get; set; }
-        public int Quantidade { get; set; }
+        public decimal Quantidade { get; set; }
         public string Codigo { get; set; }
         public double Valor { get; set; }
         public bool isChapa {  get; set; }

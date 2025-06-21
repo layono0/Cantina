@@ -11,7 +11,7 @@ namespace Cantina_End
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Estoque());
+            Application.Run(new Gestão_de_Produto());
         }
     }
 }

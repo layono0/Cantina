@@ -44,9 +44,11 @@ namespace Cantina_End
                         
                         item.SubItems[1].Text = itemdoestoque.Quantidade.ToString();
 
-                        string caminhoRaiz = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+                         string caminhoRaiz = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
                         string local = Path.Combine(caminhoRaiz, "Estoque.txt");
+                        string localProdutos = Path.Combine(caminhoRaiz, "listadeitems.txt");
                         var linhas = File.ReadAllLines(local).ToList();
+                        var linhasProdutos = File.ReadAllLines(localProdutos).ToList();
                         for (int i = 0; i < linhas.Count; i++)
                         {
                             var partes = linhas[i].Split(';');
@@ -60,6 +62,20 @@ namespace Cantina_End
 
 
                         File.WriteAllLines(local, linhas);
+                        for (int i = 0; i < linhasProdutos.Count; i++)
+                        {
+                            var partes = linhasProdutos[i].Split(';');
+                            if (partes[0] == itemdoestoque.Nome)
+                            {
+                                if (decimal.TryParse(partes[2], out decimal quantidadeAtual))
+                                {
+                                    decimal novaQuantidade = quantidadeAtual + numeral.Value;
+                                    linhasProdutos[i] = $"{partes[0]};{partes[1]}; {novaQuantidade};{partes[3]};{partes[4]}";
+                                }
+                                break;
+                            }
+                        }
+                        File.WriteAllLines(localProdutos, linhasProdutos);
                     }
 
                     else
@@ -96,7 +112,9 @@ namespace Cantina_End
 
                         string caminhoRaiz = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
                         string local = Path.Combine(caminhoRaiz, "Estoque.txt");
+
                         var linhas = File.ReadAllLines(local).ToList();
+
                         for (int i = 0; i < linhas.Count; i++)
                         {
                             var partes = linhas[i].Split(';');
@@ -107,9 +125,9 @@ namespace Cantina_End
                                 break;
                             }
                         }
-
-                       
                         File.WriteAllLines(local, linhas);
+
+
                     }
                     else
                     {
